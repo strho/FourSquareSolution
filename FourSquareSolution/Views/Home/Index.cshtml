@@ -1,0 +1,29 @@
+﻿@model FourSquareSolution.Models.SearchModel
+@{
+    ViewBag.Title = "FourSquare Search";
+}
+
+@using (Html.BeginForm("SearchVenues", "Home"))
+{
+    <div class="form-group row medium-margin-top" id="search-div">
+        <div class="col-md-2 btn-group">
+            @Html.TextBoxFor(model => model.SearchQuery, new {@placeholder = "Search text", @class = "form-control", @id = "search-input"})
+            <span id="search-clear" class="glyphicon glyphicon-remove-circle"></span>
+        </div>
+        <div class="col-md-2 btn-group">
+            <button type="submit" id="search-button" value="Search" class="btn btn-success"><i class="glyphicon glyphicon-search"></i> Search</button>
+        </div>
+    </div>
+    <br/>
+}
+<div id="venues-result">
+    @{Html.RenderPartial("_VenuesPartialView", Model);}
+</div>
+<br/>
+
+
+@section Scripts{
+    
+    <script src="~/Scripts/VenueScripts/venues.js" type="text/javascript">
+    </script>
+}

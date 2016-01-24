@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FourSquareSolution.Models.VenueModel>
+
+@foreach (var venue in Model){
+    <tr>
+        <td>
+            <a href="@venue.Url" target="_blank"><span>@venue.Name</span></a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => venue.CheckinCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => venue.NowHere)
+        </td>
+    </tr>
+}
