@@ -1,5 +1,13 @@
 ﻿@model FourSquareSolution.Models.SearchModel
-<div class="table-responsive">    
+<div class="table-responsive">
+    @if (!string.IsNullOrEmpty(Model.SearchQuery))
+    {
+        <h3 class="text-info">
+            Query '<strong>@Model.SearchQuery.ToLower()</strong>' was used '<strong>@Model.SearchQueryCount</strong>' times!
+        </h3>
+        <br/>
+    }
+
     @Html.HiddenFor(model => model.VenuesTotalCount, new {@id = "total-venues-count"})
     <table id="venues-result-table" class="table table-striped">
         <thead>
